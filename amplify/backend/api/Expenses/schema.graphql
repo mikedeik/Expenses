@@ -1,0 +1,14 @@
+type Expense @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  categoryID: ID! @index(name: "byCategory")
+  Description: String
+  Date: AWSDate!
+  Value: Float!
+  Testing: String
+}
+
+type Category @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  name: String
+  Expenses: [Expense] @hasMany(indexName: "byCategory", fields: ["id"])
+}

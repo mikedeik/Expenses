@@ -1,14 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import {Amplify} from "@aws-amplify/core";
+import {
+  withAuthenticator,
+} from '@aws-amplify/ui-react-native';
+import awsmobile from './src/aws-exports';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import HomePage from './pages/Home/HomePage';
+import HomeScreen from './pages/HomeScreen/HomeScreen';
 
-export default function App() {
+Amplify.configure(awsmobile);
+
+
+
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="HomePage" component={HomePage} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
+export default withAuthenticator(App);
 
 const styles = StyleSheet.create({
   container: {
