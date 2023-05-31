@@ -1,11 +1,88 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getIncome = /* GraphQL */ `
+  query GetIncome($id: ID!) {
+    getIncome(id: $id) {
+      id
+      Value
+      Cash
+      Description
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const listIncomes = /* GraphQL */ `
+  query ListIncomes(
+    $filter: ModelIncomeFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listIncomes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        Value
+        Cash
+        Description
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncIncomes = /* GraphQL */ `
+  query SyncIncomes(
+    $filter: ModelIncomeFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncIncomes(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        Value
+        Cash
+        Description
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
 export const getExpense = /* GraphQL */ `
   query GetExpense($id: ID!) {
     getExpense(id: $id) {
       id
       categoryID
+      category {
+        id
+        name
+        type
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
       Description
       Date
       Value
@@ -116,6 +193,7 @@ export const getCategory = /* GraphQL */ `
         nextToken
         startedAt
       }
+      type
       createdAt
       updatedAt
       _version
@@ -134,6 +212,7 @@ export const listCategories = /* GraphQL */ `
       items {
         id
         name
+        type
         createdAt
         updatedAt
         _version
@@ -161,6 +240,7 @@ export const syncCategories = /* GraphQL */ `
       items {
         id
         name
+        type
         createdAt
         updatedAt
         _version

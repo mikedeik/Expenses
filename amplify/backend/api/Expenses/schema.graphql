@@ -1,14 +1,30 @@
-type Expense @model @auth(rules: [{ allow: public }]) {
+enum CATEGORYTYPE {
+  PAGIA
+  DIASKEDASI
+  YPOXREWSI
+}
+
+type Income @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Value: Float!
+  Cash: Boolean
+  Description: String
+}
+
+type Expense @model @auth(rules: [{allow: public}]) {
   id: ID!
   categoryID: ID! @index(name: "byCategory")
+  category: Category @belongsTo(fields: ["categoryID"])
   Description: String
   Date: AWSDate!
   Value: Float!
   Testing: String
 }
 
-type Category @model @auth(rules: [{ allow: public }]) {
+type Category @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String
   Expenses: [Expense] @hasMany(indexName: "byCategory", fields: ["id"])
+  type: CATEGORYTYPE
 }
+ 

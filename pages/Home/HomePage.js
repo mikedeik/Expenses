@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, Text} from 'react-native';
 import { TextInput, Button  } from 'react-native-paper';
-import {SelectList} from 'react-native-dropdown-select-list';
+import { SelectList } from 'react-native-dropdown-select-list';
 import { Dimensions } from 'react-native';
-import { API, graphqlOperation } from 'aws-amplify';
-import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
-import { getCategory, listCategories } from '../../src/graphql/queries';
+import { API } from 'aws-amplify';
+import { listCategories } from '../../src/graphql/queries';
 import { createExpense } from '../../src/graphql/mutations';
-import {
-    useAuthenticator,
-  } from '@aws-amplify/ui-react-native';
+import SignOutButton from '../../Components/SignOut';
 
-const HomePage = () => {
+const HomePage = ({navigation}) => {
 
     const [cost, setCost] = useState('');
     const [description, setDescription] = useState('');
@@ -55,15 +52,10 @@ const HomePage = () => {
         } catch(e){
             console.log(e);
         }
-
-
         setLoadingAPI(false);
+        navigation.navigate('HomeScreen');
     };
-    function SignOutButton() {
-        const { signOut } = useAuthenticator();
-        return <Button onPress={signOut} title="Sign Out" >signOut</Button>;
-      }
-
+    
     useEffect(() => {
         let options = [];
         const fetchCategories = async () => {

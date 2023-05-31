@@ -1,11 +1,66 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateIncome = /* GraphQL */ `
+  subscription OnCreateIncome($filter: ModelSubscriptionIncomeFilterInput) {
+    onCreateIncome(filter: $filter) {
+      id
+      Value
+      Cash
+      Description
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onUpdateIncome = /* GraphQL */ `
+  subscription OnUpdateIncome($filter: ModelSubscriptionIncomeFilterInput) {
+    onUpdateIncome(filter: $filter) {
+      id
+      Value
+      Cash
+      Description
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onDeleteIncome = /* GraphQL */ `
+  subscription OnDeleteIncome($filter: ModelSubscriptionIncomeFilterInput) {
+    onDeleteIncome(filter: $filter) {
+      id
+      Value
+      Cash
+      Description
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
 export const onCreateExpense = /* GraphQL */ `
   subscription OnCreateExpense($filter: ModelSubscriptionExpenseFilterInput) {
     onCreateExpense(filter: $filter) {
       id
       categoryID
+      category {
+        id
+        name
+        type
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
       Description
       Date
       Value
@@ -23,6 +78,16 @@ export const onUpdateExpense = /* GraphQL */ `
     onUpdateExpense(filter: $filter) {
       id
       categoryID
+      category {
+        id
+        name
+        type
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
       Description
       Date
       Value
@@ -40,6 +105,16 @@ export const onDeleteExpense = /* GraphQL */ `
     onDeleteExpense(filter: $filter) {
       id
       categoryID
+      category {
+        id
+        name
+        type
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
       Description
       Date
       Value
@@ -61,6 +136,7 @@ export const onCreateCategory = /* GraphQL */ `
         nextToken
         startedAt
       }
+      type
       createdAt
       updatedAt
       _version
@@ -78,6 +154,7 @@ export const onUpdateCategory = /* GraphQL */ `
         nextToken
         startedAt
       }
+      type
       createdAt
       updatedAt
       _version
@@ -95,6 +172,7 @@ export const onDeleteCategory = /* GraphQL */ `
         nextToken
         startedAt
       }
+      type
       createdAt
       updatedAt
       _version

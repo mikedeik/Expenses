@@ -1,6 +1,60 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createIncome = /* GraphQL */ `
+  mutation CreateIncome(
+    $input: CreateIncomeInput!
+    $condition: ModelIncomeConditionInput
+  ) {
+    createIncome(input: $input, condition: $condition) {
+      id
+      Value
+      Cash
+      Description
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const updateIncome = /* GraphQL */ `
+  mutation UpdateIncome(
+    $input: UpdateIncomeInput!
+    $condition: ModelIncomeConditionInput
+  ) {
+    updateIncome(input: $input, condition: $condition) {
+      id
+      Value
+      Cash
+      Description
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const deleteIncome = /* GraphQL */ `
+  mutation DeleteIncome(
+    $input: DeleteIncomeInput!
+    $condition: ModelIncomeConditionInput
+  ) {
+    deleteIncome(input: $input, condition: $condition) {
+      id
+      Value
+      Cash
+      Description
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
 export const createExpense = /* GraphQL */ `
   mutation CreateExpense(
     $input: CreateExpenseInput!
@@ -9,6 +63,16 @@ export const createExpense = /* GraphQL */ `
     createExpense(input: $input, condition: $condition) {
       id
       categoryID
+      category {
+        id
+        name
+        type
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
       Description
       Date
       Value
@@ -29,6 +93,16 @@ export const updateExpense = /* GraphQL */ `
     updateExpense(input: $input, condition: $condition) {
       id
       categoryID
+      category {
+        id
+        name
+        type
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
       Description
       Date
       Value
@@ -49,6 +123,16 @@ export const deleteExpense = /* GraphQL */ `
     deleteExpense(input: $input, condition: $condition) {
       id
       categoryID
+      category {
+        id
+        name
+        type
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
       Description
       Date
       Value
@@ -73,6 +157,7 @@ export const createCategory = /* GraphQL */ `
         nextToken
         startedAt
       }
+      type
       createdAt
       updatedAt
       _version
@@ -93,6 +178,7 @@ export const updateCategory = /* GraphQL */ `
         nextToken
         startedAt
       }
+      type
       createdAt
       updatedAt
       _version
@@ -113,6 +199,7 @@ export const deleteCategory = /* GraphQL */ `
         nextToken
         startedAt
       }
+      type
       createdAt
       updatedAt
       _version
